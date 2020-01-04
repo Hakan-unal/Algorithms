@@ -52,19 +52,19 @@ class LinkedList {
     }
 }
 
+
 class BubbleSort {
     static nonRecursive(array) {
         // Fonksiyona gönderilen array'in eleman sayısı kadar çalışır
-        for (let i = 0; i < array.length; i++) {
+        for (let i = array.length - 1; i > 0; i--) {
             // Fonksiyona gönderilen array'in eleman sayısı kadar çalışır
-            for (let j = 0; j < array.length; j++) {
-                // Eğer array'in tüm elemanları gezilirken soldaki elemanın sağdaki elemandan büyük olduğu bir durumla karşılaşılırsa if'in içine girer
-                if (array[j] > array[j + 1]) {
-                    //Soldaki elemanın sağdaki elemandan büyük olduğu her durumda aşağıdaki swap işlemi yapılır
-                    let temp;
-                    temp = array[j];
-                    array[j] = array[j + 1];
-                    array[j + 1] = temp;
+            for (let j = array.length - i; j > 0; j--) {
+                // array'in sonundan başlayarak karşılaştırmaları yapar
+                // koşul sağlandığında if bloğu içerisine girip swap işlemini yapar
+                if (array[j] < array[j - 1]) {
+                    let tmp = array[j];
+                    array[j] = array[j - 1];
+                    array[j - 1] = tmp;
                 }
             }
         }
